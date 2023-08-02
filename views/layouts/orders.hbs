@@ -1,0 +1,53 @@
+<!-- customers.hbs -->
+
+{{!-- Create a table --}}
+<table id="orders-table">
+
+    {{!-- Header section --}}
+    <thead>
+
+        {{!-- For just the first row, we print each key of the row object as a header cell so we
+        know what each column means when the page renders --}}
+        <tr>
+            {{#each data.[0]}}
+            <th>
+                {{@key}}
+            </th>
+            {{/each}}
+        </tr>
+    </thead>
+
+    {{!-- Body section --}}
+    <tbody>
+
+        {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
+        {{#each data}}
+        <tr>
+            <td>{{this.orderID}}</td>
+            <td>{{this.customerID}}</td>
+            <td>{{this.employeeID}}</td>
+            <td>{{this.dateTime}}</td>
+            <td>{{this.orderTotal}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+{{!-- Form to add a record to the table  --}}
+<h2>Add Order</h2>
+<p>To add a new order, please enter their information below and click 'Submit'!</p>
+<form id="add-order-form" method = "POST" action="add-order-form">
+    <label for="input-customerID">customerID: </label>
+    <input type="text" name="input-customerID" id="input-customerID">
+    
+    <label for="input-employeeID">employeeID: </label>
+    <input type="text" name="input-employeeID" id="input-employeeID">
+
+    <label for="input-dateTime">dateTime: </label>
+    <input type="text" name="input-dateTime" id="input-dateTime">
+
+    <label for="input-orderTotal">orderTotal: </label>
+    <input type="number" name="input-orderTotal" id="input-orderTotal">
+
+    <input type="submit">
+</form>

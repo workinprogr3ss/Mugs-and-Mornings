@@ -1,0 +1,61 @@
+<!-- customers.hbs -->
+
+{{!-- Create a table --}}
+<table id="products-table">
+
+    {{!-- Header section --}}
+    <thead>
+
+        {{!-- For just the first row, we print each key of the row object as a header cell so we
+        know what each column means when the page renders --}}
+        <tr>
+            {{#each data.[0]}}
+            <th>
+                {{@key}}
+            </th>
+            {{/each}}
+        </tr>
+    </thead>
+
+    {{!-- Body section --}}
+    <tbody>
+
+        {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
+        {{#each data}}
+        <tr>
+            <td>{{this.productID}}</td>
+            <td>{{this.supplierID}}</td>
+            <td>{{this.name}}</td>
+            <td>{{this.price}}</td>
+            <td>{{this.stockQuantity}}</td>
+            <td>{{this.deliveryDate}}</td>
+            <td>{{this.description}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+{{!-- Form to add a record to the table  --}}
+<h2>Add Product</h2>
+<p>To add a new product, please enter their information below and click 'Submit'!</p>
+<form id="add-product-form" method = "POST" action="add-product-form">
+    <label for="input-supplierID">supplierID: </label>
+    <input type="text" name="input-supplierID" id="input-supplierID">
+    
+    <label for="input-name">Name: </label>
+    <input type="text" name="input-name" id="input-name">
+
+    <label for="input-price">Price: </label>
+    <input type="text" name="input-price" id="input-price">
+
+    <label for="input-stockQuantity">Stock Quantity: </label>
+    <input type="number" name="input-stockQuantity" id="input-stockQuantity">
+
+    <label for="input-deliveryDate">Delivery Date: </label>
+    <input type="number" name="input-deliveryDate" id="input-deliveryDate">
+
+    <label for="input-description">Description: </label>
+    <input type="number" name="input-description" id="input-description">
+
+    <input type="submit">
+</form>

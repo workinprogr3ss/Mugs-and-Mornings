@@ -1,0 +1,50 @@
+<!-- customers.hbs -->
+
+{{!-- Create a table --}}
+<table id="suppliers-table">
+
+    {{!-- Header section --}}
+    <thead>
+
+        {{!-- For just the first row, we print each key of the row object as a header cell so we
+        know what each column means when the page renders --}}
+        <tr>
+            {{#each data.[0]}}
+            <th>
+                {{@key}}
+            </th>
+            {{/each}}
+        </tr>
+    </thead>
+
+    {{!-- Body section --}}
+    <tbody>
+
+        {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
+        {{#each data}}
+        <tr>
+            <td>{{this.supplierID}}</td>
+            <td>{{this.name}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.phoneNumber}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+{{!-- Form to add a record to the table  --}}
+<h2>Add Supplier</h2>
+<p>To add a new supplier, please enter their information below and click 'Submit'!</p>
+<form id="add-supplier-form" method = "POST" action="add-supplier-form">
+
+    <label for="input-name">Name: </label>
+    <input type="text" name="input-name" id="input-name">
+
+    <label for="input-email">Email: </label>
+    <input type="text" name="input-email" id="input-email">
+
+    <label for="input-phoneNumber">Phone Number: </label>
+    <input type="number" name="input-phoneNumber" id="input-phoneNumber">
+
+    <input type="submit">
+</form>

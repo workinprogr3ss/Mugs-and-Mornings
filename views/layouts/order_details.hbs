@@ -1,0 +1,48 @@
+<!-- customers.hbs -->
+
+{{!-- Create a table --}}
+<table id="order-details-table">
+
+    {{!-- Header section --}}
+    <thead>
+
+        {{!-- For just the first row, we print each key of the row object as a header cell so we
+        know what each column means when the page renders --}}
+        <tr>
+            {{#each data.[0]}}
+            <th>
+                {{@key}}
+            </th>
+            {{/each}}
+        </tr>
+    </thead>
+
+    {{!-- Body section --}}
+    <tbody>
+
+        {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
+        {{#each data}}
+        <tr>
+            <td>{{this.orderID}}</td>
+            <td>{{this.productID}}</td>
+            <td>{{this.soldQuantity}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+{{!-- Form to add a record to the table  --}}
+<h2>Add Order Details</h2>
+<p>To add a new order details, please enter their information below and click 'Submit'!</p>
+<form id="add-order-details-form" method = "POST" action="add-order-details-form">
+    <label for="input-orderID">orderID: </label>
+    <input type="text" name="input-orderID" id="input-orderID">
+    
+    <label for="input-productID">productID: </label>
+    <input type="text" name="input-productID" id="input-productID">
+
+    <label for="input-dateTime">soldQuantity: </label>
+    <input type="text" name="input-soldQuantity" id="input-soldQuantity">
+
+    <input type="submit">
+</form>
