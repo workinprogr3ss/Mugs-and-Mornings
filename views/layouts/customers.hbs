@@ -14,6 +14,7 @@
                 {{@key}}
             </th>
             {{/each}}
+            <th>Delete</th>
         </tr>
     </thead>
 
@@ -27,10 +28,24 @@
             <td>{{this.email}}</td>
             <td>{{this.phoneNumber}}</td>
             <td>{{this.birthday}}</td>
+            <td><button onclick="deleteCustomer({{this.id}})">Delete</button></td>
         </tr>
         {{/each}}
     </tbody>
 </table>
+<script src="../../public/js/delete_customer.js"></script>
+
+{{!-- Form to search a record to the table  --}}
+<h2>Search for a Customer</h2>
+<p>Search by name using the field below.</p>
+<form id="search-customer-html" method='GET' action='/customers'>
+    <label for="input-name">Search by Name: </label>
+    <input type="text" name="name" id="input-name-html-search">
+
+    <input type="submit">
+    <a href="/customers"><button>Reset</button></a>
+</form>
+
 
 {{!-- Form to add a record to the table  --}}
 <h2>Add Customer</h2>

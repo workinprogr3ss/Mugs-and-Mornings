@@ -32,6 +32,17 @@
     </tbody>
 </table>
 
+{{!-- Form to search a record to the table  --}}
+<h2>Search for a Order</h2>
+<p>Search by order ID using the field below.</p>
+<form id="search-order-html" method='GET' action='/orders'>
+    <label for="input-order">Search by Order ID: </label>
+    <input type="text" name="order" id="input-order-html-search">
+
+    <input type="submit">
+    <a href="/orders"><button>Reset</button></a>
+</form>
+
 {{!-- Form to add a record to the table  --}}
 <h2>Add Order</h2>
 <p>To add a new order, please enter their information below and click 'Submit'!</p>

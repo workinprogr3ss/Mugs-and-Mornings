@@ -32,6 +32,17 @@
     </tbody>
 </table>
 
+{{!-- Form to search a record to the table  --}}
+<h2>Search for an Employee</h2>
+<p>Search by name using the field below.</p>
+<form id="search-employee-html" method='GET' action='/employees'>
+    <label for="input-employee">Search by Name: </label>
+    <input type="text" name="employee" id="input-employee-html-search">
+
+    <input type="submit">
+    <a href="/employees"><button>Reset</button></a>
+</form>
+
 {{!-- Form to add a record to the table  --}}
 <h2>Add Employee</h2>
 <p>To add a new employee, please enter their information below and click 'Submit'!</p>

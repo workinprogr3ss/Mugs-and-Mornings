@@ -34,6 +34,17 @@
     </tbody>
 </table>
 
+{{!-- Form to search a record to the table  --}}
+<h2>Search for a Product</h2>
+<p>Search by product using the field below.</p>
+<form id="search-product-html" method='GET' action='/products'>
+    <label for="input-product">Search by Product: </label>
+    <input type="text" name="product" id="input-product-html-search">
+
+    <input type="submit">
+    <a href="/products"><button>Reset</button></a>
+</form>
+
 {{!-- Form to add a record to the table  --}}
 <h2>Add Product</h2>
 <p>To add a new product, please enter their information below and click 'Submit'!</p>
