@@ -14,6 +14,7 @@
                 {{@key}}
             </th>
             {{/each}}
+            <th>Delete</th>
         </tr>
     </thead>
 
@@ -21,16 +22,18 @@
     <tbody>
 
         {{#each data}}
-        <tr>
+        <tr data-value="{{this.employeeID}}">
             <td>{{this.employeeID}}</td>
             <td>{{this.name}}</td>
             <td>{{this.position}}</td>
             <td>{{this.email}}</td>
             <td>{{this.phoneNumber}}</td>
+            <td><button onclick="deleteEmployee({{this.employeeID}})">Delete</button></td>
         </tr>
         {{/each}}
     </tbody>
 </table>
+<script src="./js/delete_employee.js"></script>
 
 {{!-- Form to search a record to the table  --}}
 <h2>Search for an Employee</h2>

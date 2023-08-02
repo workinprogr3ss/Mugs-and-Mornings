@@ -14,6 +14,7 @@
                 {{@key}}
             </th>
             {{/each}}
+            <th>Delete</th>
         </tr>
     </thead>
 
@@ -21,16 +22,19 @@
     <tbody>
 
         {{#each data}}
-        <tr>
+        <tr data-value="{{this.orderID}}">
             <td>{{this.orderID}}</td>
             <td>{{this.customerID}}</td>
             <td>{{this.employeeID}}</td>
             <td>{{this.dateTime}}</td>
             <td>{{this.orderTotal}}</td>
+            <td><button onclick="deleteOrder({{this.orderID}})">Delete</button></td>
         </tr>
         {{/each}}
     </tbody>
 </table>
+<script src="./js/delete_order.js"></script>
+
 
 {{!-- Form to search a record to the table  --}}
 <h2>Search for a Order</h2>
