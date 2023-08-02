@@ -14,6 +14,7 @@
                 {{@key}}
             </th>
             {{/each}}
+            <th>Delete</th>
         </tr>
     </thead>
 
@@ -21,15 +22,17 @@
     <tbody>
 
         {{#each data}}
-        <tr>
+        <tr data-value="{{this.supplierID}}">
             <td>{{this.supplierID}}</td>
             <td>{{this.name}}</td>
             <td>{{this.email}}</td>
             <td>{{this.phoneNumber}}</td>
+            <td><button onclick="deleteSupplier({{this.supplierID}})">Delete</button></td>
         </tr>
         {{/each}}
     </tbody>
 </table>
+<script src="./js/delete_supplier.js"></script>
 
 {{!-- Form to search a record to the table  --}}
 <h2>Search for a Supplier</h2>

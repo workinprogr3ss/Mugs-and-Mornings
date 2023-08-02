@@ -20,20 +20,19 @@
 
     {{!-- Body section --}}
     <tbody>
-
         {{#each data}}
-        <tr>
+        <tr data-value="{{this.customerID}}">
             <td>{{this.customerID}}</td>
             <td>{{this.name}}</td>
             <td>{{this.email}}</td>
             <td>{{this.phoneNumber}}</td>
             <td>{{this.birthday}}</td>
-            <td><button onclick="deleteCustomer({{this.id}})">Delete</button></td>
+            <td><button onclick="deleteCustomer({{this.customerID}})">Delete</button></td>
         </tr>
         {{/each}}
     </tbody>
 </table>
-<script src="../../public/js/delete_customer.js"></script>
+<script src="./js/delete_customer.js"></script>
 
 {{!-- Form to search a record to the table  --}}
 <h2>Search for a Customer</h2>

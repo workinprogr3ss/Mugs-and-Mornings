@@ -94,22 +94,31 @@ app.delete('/delete-customer-ajax', function (req, res, next) {
     let data = req.body;
     let customerID = parseInt(data.id);
     let deleteCustomer = `DELETE FROM Customers WHERE customerID = ?`;
+    let setCustomerNull = `UPDATE Orders SET customerID = NULL WHERE customerID = ?`;
 
     // Run the 1st query
-    db.pool.query(deleteCustomer, [customerID], function (error, rows, fields) {
+    db.pool.query(setCustomerNull, [customerID], function(error, rows, fields){
         if (error) {
 
-            // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
-            console.log(error);
-            res.sendStatus(400);
+        // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+        console.log(error);
+        res.sendStatus(400);
         }
 
-        else {
-            res.sendStatus(204);
+        else
+        {
+            // Run the second query
+            db.pool.query(deleteCustomer, [customerID], function(error, rows, fields) {
 
+                if (error) {
+                    console.log(error);
+                    res.sendStatus(400);
+                } else {
+                    res.sendStatus(204);
+                }
+            })
         }
-    })
-});
+})});
 
 // EMPLOYEES
 
@@ -169,6 +178,36 @@ app.post('/add-employee-form', function (req, res) {
     })
 });
 
+app.delete('/delete-employee-ajax', function (req, res, next) {
+    let data = req.body;
+    let employeeID = parseInt(data.id);
+    let deleteEmployee = `DELETE FROM Employees WHERE employeeID = ?`;
+    let setEmployeeNull = `UPDATE Orders SET employeeID = NULL WHERE employeeID = ?`;
+
+    // Run the 1st query
+    db.pool.query(setEmployeeNull, [employeeID], function(error, rows, fields){
+        if (error) {
+
+        // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+        console.log(error);
+        res.sendStatus(400);
+        }
+
+        else
+        {
+            // Run the second query
+            db.pool.query(deleteEmployee, [employeeID], function(error, rows, fields) {
+
+                if (error) {
+                    console.log(error);
+                    res.sendStatus(400);
+                } else {
+                    res.sendStatus(204);
+                }
+            })
+        }
+})});
+
 // ORDERS
 
 app.get('/orders', function (req, res) {
@@ -226,6 +265,36 @@ app.post('/add-order-form', function (req, res) {
         }
     })
 });
+
+app.delete('/delete-order-ajax', function (req, res, next) {
+    let data = req.body;
+    let orderID = parseInt(data.id);
+    let deleteOrder = `DELETE FROM Orders WHERE orderID = ?`;
+    let setOrderNull = `UPDATE Order_Details SET orderID = NULL WHERE orderID = ?`;
+
+    // Run the 1st query
+    db.pool.query(setOrderNull, [orderID], function(error, rows, fields){
+        if (error) {
+
+        // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+        console.log(error);
+        res.sendStatus(400);
+        }
+
+        else
+        {
+            // Run the second query
+            db.pool.query(deleteOrder, [orderID], function(error, rows, fields) {
+
+                if (error) {
+                    console.log(error);
+                    res.sendStatus(400);
+                } else {
+                    res.sendStatus(204);
+                }
+            })
+        }
+})});
 
 // ORDER DETAILS
 
@@ -321,6 +390,36 @@ app.post('/add-product-form', function (req, res) {
     })
 });
 
+app.delete('/delete-product-ajax', function (req, res, next) {
+    let data = req.body;
+    let productID = parseInt(data.id);
+    let deleteProduct = `DELETE FROM Products WHERE productID = ?`;
+    let setProductNull = `UPDATE Order_Details SET productID = NULL WHERE productID = ?`;
+
+    // Run the 1st query
+    db.pool.query(setProductNull, [productID], function(error, rows, fields){
+        if (error) {
+
+        // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+        console.log(error);
+        res.sendStatus(400);
+        }
+
+        else
+        {
+            // Run the second query
+            db.pool.query(deleteProduct, [productID], function(error, rows, fields) {
+
+                if (error) {
+                    console.log(error);
+                    res.sendStatus(400);
+                } else {
+                    res.sendStatus(204);
+                }
+            })
+        }
+})});
+
 // Suppliers 
 
 app.get('/suppliers', function (req, res) {
@@ -378,6 +477,36 @@ app.post('/add-supplier-form', function (req, res) {
         }
     })
 });
+
+app.delete('/delete-supplier-ajax', function (req, res, next) {
+    let data = req.body;
+    let supplierID = parseInt(data.id);
+    let deleteSupplier = `DELETE FROM Suppliers WHERE supplierID = ?`;
+    let setSupplierNull = `UPDATE Products SET supplierID = NULL WHERE supplierID = ?`;
+
+    // Run the 1st query
+    db.pool.query(setSupplierNull, [supplierID], function(error, rows, fields){
+        if (error) {
+
+        // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+        console.log(error);
+        res.sendStatus(400);
+        }
+
+        else
+        {
+            // Run the second query
+            db.pool.query(deleteSupplier, [supplierID], function(error, rows, fields) {
+
+                if (error) {
+                    console.log(error);
+                    res.sendStatus(400);
+                } else {
+                    res.sendStatus(204);
+                }
+            })
+        }
+})});
 
 /*
     LISTENER

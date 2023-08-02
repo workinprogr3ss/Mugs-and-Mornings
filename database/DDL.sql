@@ -257,21 +257,21 @@ ALTER TABLE `Suppliers`
 -- Constraints for table `Orders`
 --
 ALTER TABLE `Orders`
-  ADD CONSTRAINT `fk_Order_Customer` FOREIGN KEY (`customerID`) REFERENCES `Customers` (`customerID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Order_Employee1` FOREIGN KEY (`employeeID`) REFERENCES `Employees` (`employeeID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Order_Customer` FOREIGN KEY (`customerID`) REFERENCES `Customers` (`customerID`) ON DELETE NULL ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Order_Employee1` FOREIGN KEY (`employeeID`) REFERENCES `Employees` (`employeeID`) ON DELETE NULL ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `Order_Details`
 --
 ALTER TABLE `Order_Details`
-  ADD CONSTRAINT `fk_Order_Details_Order1` FOREIGN KEY (`orderID`) REFERENCES `Orders` (`orderID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Order_Details_Product1` FOREIGN KEY (`productID`) REFERENCES `Products` (`productID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Order_Details_Order1` FOREIGN KEY (`orderID`) REFERENCES `Orders` (`orderID`) ON DELETE NULL ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Order_Details_Product1` FOREIGN KEY (`productID`) REFERENCES `Products` (`productID`) ON DELETE NULL ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `Products`
 --
 ALTER TABLE `Products`
-  ADD CONSTRAINT `fk_Products_Suppliers1` FOREIGN KEY (`supplierID`) REFERENCES `Suppliers` (`supplierID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Products_Suppliers1` FOREIGN KEY (`supplierID`) REFERENCES `Suppliers` (`supplierID`) ON DELETE NULL ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
