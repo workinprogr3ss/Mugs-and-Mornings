@@ -31,6 +31,17 @@
     </tbody>
 </table>
 
+{{!-- Form to search a record to the table  --}}
+<h2>Search for a Supplier</h2>
+<p>Search by supplier using the field below.</p>
+<form id="search-supplier-html" method='GET' action='/suppliers'>
+    <label for="input-supplier">Search by Supplier: </label>
+    <input type="text" name="supplier" id="input-supplier-html-search">
+
+    <input type="submit">
+    <a href="/suppliers"><button>Reset</button></a>
+</form>
+
 {{!-- Form to add a record to the table  --}}
 <h2>Add Supplier</h2>
 <p>To add a new supplier, please enter their information below and click 'Submit'!</p>
