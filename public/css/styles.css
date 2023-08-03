@@ -8,6 +8,7 @@ body {
   flex-direction: column;
   margin: 0;
   padding: 0;
+  min-height: 100vh;
 }
 main {
   padding: 10px;
@@ -54,13 +55,10 @@ tr:nth-child(odd) {
 }
 footer {
   background-color: #3f322f;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
   color: #ffc425;
   padding: 20px;
   text-align: center;
+  margin-top: auto;
 }
 .titleBtn {
   margin: 0 15px;
