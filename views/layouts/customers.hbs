@@ -1,66 +1,94 @@
 <!-- customers.hbs -->
 
-{{!-- Create a table --}}
+{{! Create a table }}
 <table id="customers-table">
 
-    {{!-- Header section --}}
-    <thead>
+  {{! Header section }}
+  <thead>
 
-        {{!-- For just the first row, we print each key of the row object as a header cell so we
-        know what each column means when the page renders --}}
-        <tr>
-            {{#each data.[0]}}
-            <th>
-                {{@key}}
-            </th>
-            {{/each}}
-            <th>Delete</th>
-        </tr>
-    </thead>
+    {{! For just the first row, we print each key of the row object as a header cell so we
+        know what each column means when the page renders }}
+    <tr>
+      {{#each data.0}}
+        <th>
+          {{@key}}
+        </th>
+      {{/each}}
+      <th>Delete</th>
+    </tr>
+  </thead>
 
-    {{!-- Body section --}}
-    <tbody>
-        {{#each data}}
-        <tr data-value="{{this.customerID}}">
-            <td>{{this.customerID}}</td>
-            <td>{{this.name}}</td>
-            <td>{{this.email}}</td>
-            <td>{{this.phoneNumber}}</td>
-            <td>{{this.birthday}}</td>
-            <td><button onclick="deleteCustomer({{this.customerID}})">Delete</button></td>
-        </tr>
-        {{/each}}
-    </tbody>
+  {{! Body section }}
+  <tbody>
+    {{#each data}}
+      <tr data-value="{{this.customerID}}">
+        <td>{{this.customerID}}</td>
+        <td>{{this.name}}</td>
+        <td>{{this.email}}</td>
+        <td>{{this.phoneNumber}}</td>
+        <td>{{this.birthday}}</td>
+        <td><button
+            onclick="deleteCustomer({{this.customerID}})"
+          >Delete</button></td>
+      </tr>
+    {{/each}}
+  </tbody>
 </table>
 <script src="./js/delete_customer.js"></script>
 
-{{!-- Form to search a record to the table  --}}
+{{! Form to search a record to the table  }}
 <h2>Search for a Customer</h2>
 <p>Search by name using the field below.</p>
-<form id="search-customer-html" method='GET' action='/customers'>
-    <label for="input-name">Search by Name: </label>
-    <input type="text" name="name" id="input-name-html-search">
+<form id="search-customer-html" method="GET" action="/customers">
+  <label for="input-name">Search by Name: </label>
+  <input type="text" name="name" id="input-name-html-search" />
 
-    <input type="submit">
-    <a href="/customers"><button>Reset</button></a>
+  <input type="submit" />
+  <a href="/customers"><button>Reset</button></a>
 </form>
 
-
-{{!-- Form to add a record to the table  --}}
+{{! Form to add a record to the table  }}
 <h2>Add Customer</h2>
-<p>To add a new customer, please enter their information below and click 'Submit'!</p>
-<form id="add-customer-form" method = "POST" action="add-customer-form">
-    <label for="input-name">Name: </label>
-    <input type="text" name="input-name" id="input-name">
-    
-    <label for="input-email">E-Mail: </label>
-    <input type="text" name="input-email" id="input-email">
+<p>To add a new customer, please enter their information below and click
+  'Submit'!</p>
+<form id="add-customer-form" method="POST" action="add-customer-form">
+  <label for="input-name">Name: </label>
+  <input type="text" name="input-name" id="input-name" />
 
-    <label for="input-phoneNumber">Phone Number: </label>
-    <input type="number" name="input-phoneNumber" id="input-phoneNumber">
+  <label for="input-email">E-Mail: </label>
+  <input type="text" name="input-email" id="input-email" />
 
-    <label for="input-birthday">Birthday: </label>
-    <input type="number" name="input-birthday" id="input-birthday">
+  <label for="input-phoneNumber">Phone Number: </label>
+  <input type="number" name="input-phoneNumber" id="input-phoneNumber" />
 
-    <input type="submit">
+  <label for="input-birthday">Birthday: </label>
+  <input type="number" name="input-birthday" id="input-birthday" />
+
+  <input type="submit" />
 </form>
+
+<h2>Update A Customer</h2>
+<p>To update a specific customer, select their id from the drop-down menu</p>
+<form id="update-customer-form-ajax">
+  <label for="input-customer-ID">Customer ID: </label>
+  <select name="input-customerID" id="idSelect">
+    <option value="test">Select an ID</option>
+    {{#each data}}
+      <option>{{this.customerID}}</option>
+    {{/each}}
+  </select>
+
+  <label for="input-name">Name: </label>
+  <input type="text" id="input-name-update" name="input-name" />
+
+  <label for="input-email">Email: </label>
+  <input type="text" id="input-email-update" name="input-email" />
+
+  <label for="input-name">Phone Number: </label>
+  <input type="text" id="input-phoneNumber-update" name="input-phoneNumber" />
+
+  <label for="input-name">Birthday: </label>
+  <input type="text" id="input-birthday-update" name="input-birthday" />
+  <input type="submit" />
+</form>
+<script src="./js/update_customer.js"></script>
