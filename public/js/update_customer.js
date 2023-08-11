@@ -50,6 +50,12 @@ updateCustomerForm.addEventListener("submit", function (e) {
 
   // Send the request and wait for the response
   xhttp.send(JSON.stringify(data));
+
+  // Reset input fields
+  inputName.value = "";
+  inputEmail.value = "";
+  inputPhoneNumber.value = "";
+  inputBirthday.value = "";
 });
 
 function updateRow(data, customerID) {
