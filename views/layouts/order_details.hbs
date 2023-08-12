@@ -35,13 +35,13 @@
 <p>To add a new order details, please enter their information below and click 'Submit'!</p>
 <form id="add-order-details-form" method = "POST" action="add-order-details-form">
     <label for="input-orderID">orderID: </label>
-    <input type="text" name="input-orderID" id="input-orderID">
+    <input type="text" name="input-orderID" id="input-orderID" placeholder="2" required>
     
     <label for="input-productID">productID: </label>
-    <input type="text" name="input-productID" id="input-productID">
+    <input type="text" name="input-productID" id="input-productID" placeholder="3" required>
 
     <label for="input-dateTime">soldQuantity: </label>
-    <input type="text" name="input-soldQuantity" id="input-soldQuantity">
+    <input type="text" name="input-soldQuantity" id="input-soldQuantity" placeholder="30" required>
 
     <input class="submitBtn" type="submit">
 </form>

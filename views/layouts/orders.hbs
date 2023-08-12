@@ -40,7 +40,7 @@
 <p>Search by order ID using the field below.</p>
 <form id="search-order-html" method="GET" action="/orders">
   <label for="input-order">Search by Order ID: </label>
-  <input type="text" name="order" id="input-order-html-search" />
+  <input type="text" name="order" id="input-order-html-search" placeholder="1" required />
 
   <input class="submitBtn" type="submit" />
   <button class="resetBtn">
@@ -53,10 +53,10 @@
 <p>To add a new order, please enter their information below and click 'Submit'!</p>
 <form id="add-order-form" method="POST" action="add-order-form">
   <label for="input-customerID">customerID: </label>
-  <input type="text" name="input-customerID" id="input-customerID" />
+  <input type="text" name="input-customerID" id="input-customerID" placeholder="5" required/>
 
   <label for="input-employeeID">employeeID: </label>
-  <input type="text" name="input-employeeID" id="input-employeeID" />
+  <input type="text" name="input-employeeID" id="input-employeeID"  placeholder="3" required/>
 
   <label for="input-dateTime">dateTime: </label>
   <p class="formatMsg">Enter in YYYYMMDDHHMMSS format.</p>
@@ -66,6 +66,7 @@
     name="input-dateTime"
     id="input-dateTime"
     placeholder="20231001091020"
+    required
   />
 
   <label for="input-orderTotal">orderTotal: </label>
@@ -75,6 +76,7 @@
     name="input-orderTotal"
     id="input-orderTotal"
     placeholder="100.00"
+    required
   />
 
   <input class="submitBtn" type="submit" />

@@ -43,7 +43,7 @@
 <p>Search by product using the field below.</p>
 <form id="search-product-html" method='GET' action='/products'>
     <label for="input-product">Search by Product: </label>
-    <input type="text" name="product" id="input-product-html-search">
+    <input type="text" name="product" id="input-product-html-search" placeholder="Bagel" required>
 
     <input class="submitBtn" type="submit">
     <button class="resetBtn">
@@ -56,25 +56,25 @@
 <p>To add a new product, please enter their information below and click 'Submit'!</p>
 <form id="add-product-form" method = "POST" action="add-product-form">
     <label for="input-supplierID">supplierID: </label>
-    <input type="text" name="input-supplierID" id="input-supplierID">
+    <input type="text" name="input-supplierID" id="input-supplierID" placeholder="1" required>
     
     <label for="input-name">Name: </label>
-    <input type="text" name="input-name" id="input-name">
+    <input type="text" name="input-name" id="input-name" placeholder="Egg Sandwich" required>
 
     <label for="input-price">Price: </label>
     <p class="formatMsg">Enter in 000.00 format.</p>
-    <input type="text" name="input-price" id="input-price" placeholder="50.99">
+    <input type="text" name="input-price" id="input-price" placeholder="50.00" required>
 
     <label for="input-stockQuantity">Stock Quantity: </label>
-    <input type="number" name="input-stockQuantity" id="input-stockQuantity">
+    <input type="number" name="input-stockQuantity" id="input-stockQuantity" placeholder="20" required>
 
     <label for="input-deliveryDate">Delivery Date: </label>
     <p class="formatMsg">Enter in YYYYMMDDHHMMSS format.</p>
     <p class="formatMsg">For example 2023-10-1, 09:10:20 is 20231001091020</p>
-    <input type="number" name="input-deliveryDate" id="input-deliveryDate">
+    <input type="number" name="input-deliveryDate" id="input-deliveryDate" placeholder="20231001091020" required> 
 
     <label for="input-description">Description: </label>
-    <input type="number" name="input-description" id="input-description">
+    <input type="text" name="input-description" id="input-description" placeholder="2 eggs in an english muffin." required>
 
     <input class="submitBtn" type="submit">
 </form>
