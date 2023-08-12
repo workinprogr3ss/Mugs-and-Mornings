@@ -115,3 +115,19 @@ input {
   color: #3f322f;
   opacity: 50%;
 }
+input {
+  border-radius: 3px;
+  border: none;
+  /* padding: 5px; */
+}
+#input-birthday-update {
+  width: 40%;
+  margin-bottom: 5px;
+}
+.submitBtn {
+  margin: 5px 0;
+}
+.submitBtn:hover {
+  background-color: #ffc425;
+  cursor: pointer;
+}
