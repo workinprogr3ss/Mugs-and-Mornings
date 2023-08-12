@@ -52,10 +52,7 @@ updateCustomerForm.addEventListener("submit", function (e) {
   xhttp.send(JSON.stringify(data));
 
   // Reset input fields
-  inputName.value = "";
-  inputEmail.value = "";
-  inputPhoneNumber.value = "";
-  inputBirthday.value = "";
+  updateCustomerForm.reset();
 });
 
 function updateRow(data, customerID) {
