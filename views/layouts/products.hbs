@@ -62,12 +62,15 @@
     <input type="text" name="input-name" id="input-name">
 
     <label for="input-price">Price: </label>
-    <input type="text" name="input-price" id="input-price">
+    <p class="formatMsg">Enter in 000.00 format.</p>
+    <input type="text" name="input-price" id="input-price" placeholder="50.99">
 
     <label for="input-stockQuantity">Stock Quantity: </label>
     <input type="number" name="input-stockQuantity" id="input-stockQuantity">
 
     <label for="input-deliveryDate">Delivery Date: </label>
+    <p class="formatMsg">Enter in YYYYMMDDHHMMSS format.</p>
+    <p class="formatMsg">For example 2023-10-1, 09:10:20 is 20231001091020</p>
     <input type="number" name="input-deliveryDate" id="input-deliveryDate">
 
     <label for="input-description">Description: </label>
