@@ -110,3 +110,8 @@ input {
 .filterBtn {
   padding: 5px;
 }
+.formatMsg {
+  margin-top: 2%;
+  color: #3f322f;
+  opacity: 50%;
+}
