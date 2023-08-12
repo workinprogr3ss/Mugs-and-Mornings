@@ -24,14 +24,22 @@ nav {
   align-items: center;
   padding: 0 5% 0 2%;
 }
-a {
+.navAnchors {
   text-decoration: none;
   color: #ffc425;
   padding: 15px;
 }
-a:hover {
+.navAnchors:hover {
   cursor: pointer;
   background-color: #2f2523;
+}
+a {
+  color: black;
+  text-decoration: none;
+  padding: 15px;
+}
+a:hover {
+  cursor: pointer;
 }
 table {
   border-collapse: collapse;
@@ -130,4 +138,14 @@ input {
 .submitBtn:hover {
   background-color: #ffc425;
   cursor: pointer;
+}
+.resetBtn {
+  border-radius: 3px;
+  border: none;
+  padding: 0;
+  color: #3f322f;
+  cursor: pointer;
+}
+.resetBtn:hover {
+  background-color: #ffc425;
 }
