@@ -205,7 +205,7 @@ app.post("/add-employee-form", function (req, res) {
   let data = req.body;
 
   // Create the query and run it on the database
-  query1 = `INSERT INTO Employees (name, position, email, phoneNumber) VALUES ('${data["input-name"]}', ${data["input-position"]}, '${data["input-email"]}', ${data["input-phoneNumber"]})`;
+  query1 = `INSERT INTO Employees (name, position, email, phoneNumber) VALUES ('${data["input-name"]}', '${data["input-position"]}', '${data["input-email"]}', ${data["input-phoneNumber"]})`;
   db.pool.query(query1, function (error, rows, fields) {
     // Check to see if there was an error
     if (error) {
@@ -411,7 +411,7 @@ app.post("/add-product-form", function (req, res) {
 
   // Create the query and run it on the database
   //query1 = `INSERT INTO bsg_people (fname, lname, homeworld, age) VALUES ('${data['input-fname']}', '${data['input-lname']}', ${homeworld}, ${age})`;
-  query1 = `INSERT INTO Products (supplierID, name, price, stockQuantity, deliveryDate, description) VALUES ('${data["input-supplierID"]}, '${data["input-name"]}', '${data["input-price"]}', '${data["input-stockQuantity"]}', '${data["input-description"]} )`;
+  query1 = `INSERT INTO Products (supplierID, name, price, stockQuantity, deliveryDate, description) VALUES (${data["input-supplierID"]}, '${data["input-name"]}', '${data["input-price"]}', '${data["input-stockQuantity"]}', '${data["input-deliveryDate"]}','${data["input-description"]}' )`;
   db.pool.query(query1, function (error, rows, fields) {
     // Check to see if there was an error
     if (error) {
@@ -494,9 +494,10 @@ app.get("/suppliers", function (req, res) {
 app.post("/add-supplier-form", function (req, res) {
   // Capture the incoming data and parse it back to a JS object
   let data = req.body;
+  console.log("data is", data);
 
   // Create the query and run it on the database
-  query1 = `INSERT INTO Suppliers (name, email, phoneNumber) VALUES ('${data["input-name"]}, '${data["input-email"]}', '${data["input-phoneNumber"]}')`;
+  query1 = `INSERT INTO Suppliers (name, email, phoneNumber) VALUES ('${data["input-name"]}', '${data["input-email"]}', '${data["input-phoneNumber"]}')`;
   db.pool.query(query1, function (error, rows, fields) {
     // Check to see if there was an error
     if (error) {
