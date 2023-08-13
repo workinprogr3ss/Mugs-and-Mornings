@@ -1,63 +1,91 @@
 <!-- customers.hbs -->
 
-{{!-- Create a table --}}
+{{! Create a table }}
 <table id="suppliers-table">
 
-    {{!-- Header section --}}
-    <thead>
+  {{! Header section }}
+  <thead>
 
-        {{!-- For just the first row, we print each key of the row object as a header cell so we
-        know what each column means when the page renders --}}
-        <tr>
-            {{#each data.[0]}}
-            <th>
-                {{@key}}
-            </th>
-            {{/each}}
-            <th>Delete</th>
-        </tr>
-    </thead>
+    {{! For just the first row, we print each key of the row object as a header cell so we
+        know what each column means when the page renders }}
+    <tr>
+      {{#each data.[0]}}
+        <th>
+          {{@key}}
+        </th>
+      {{/each}}
+      <th>Delete</th>
+    </tr>
+  </thead>
 
-    {{!-- Body section --}}
-    <tbody>
+  {{! Body section }}
+  <tbody>
 
-        {{#each data}}
-        <tr data-value="{{this.supplierID}}">
-            <td>{{this.supplierID}}</td>
-            <td>{{this.name}}</td>
-            <td>{{this.email}}</td>
-            <td>{{this.phoneNumber}}</td>
-            <td><button onclick="deleteSupplier({{this.supplierID}})">Delete</button></td>
-        </tr>
-        {{/each}}
-    </tbody>
+    {{#each data}}
+      <tr data-value="{{this.supplierID}}">
+        <td>{{this.supplierID}}</td>
+        <td>{{this.name}}</td>
+        <td>{{this.email}}</td>
+        <td>{{this.phoneNumber}}</td>
+        <td><button
+            onclick="deleteSupplier({{this.supplierID}})"
+          >Delete</button></td>
+      </tr>
+    {{/each}}
+  </tbody>
 </table>
 <script src="./js/delete_supplier.js"></script>
 
-{{!-- Form to search a record to the table  --}}
+{{! Form to search a record to the table  }}
 <h2>Search for a Supplier</h2>
 <p>Search by supplier using the field below.</p>
-<form id="search-supplier-html" method='GET' action='/suppliers'>
-    <label for="input-supplier">Search by Supplier: </label>
-    <input type="text" name="supplier" id="input-supplier-html-search">
+<form id="search-supplier-html" method="GET" action="/suppliers">
+  <label for="input-supplier">Search by Supplier: </label>
+  <input
+    type="text"
+    name="supplier"
+    id="input-supplier-html-search"
+    placeholder="Deli Delights"
+  />
 
-    <input type="submit">
-    <a href="/suppliers"><button>Reset</button></a>
+  <input class="submitBtn" type="submit" />
+  <button class="resetBtn">
+    <a href="/customers">Reset</a>
+  </button>
 </form>
 
-{{!-- Form to add a record to the table  --}}
+{{! Form to add a record to the table  }}
 <h2>Add Supplier</h2>
-<p>To add a new supplier, please enter their information below and click 'Submit'!</p>
-<form id="add-supplier-form" method = "POST" action="add-supplier-form">
+<p>To add a new supplier, please enter their information below and click
+  'Submit'!</p>
+<form id="add-supplier-form" method="POST" action="add-supplier-form">
 
-    <label for="input-name">Name: </label>
-    <input type="text" name="input-name" id="input-name">
+  <label for="input-name">Name: </label>
+  <input
+    type="text"
+    name="input-name"
+    id="input-name"
+    placeholder="Fresh Foods"
+    required
+  />
 
-    <label for="input-email">Email: </label>
-    <input type="text" name="input-email" id="input-email">
+  <label for="input-email">Email: </label>
+  <input
+    type="text"
+    name="input-email"
+    id="input-email"
+    placeholder="support@freshfoods.com"
+    required
+  />
 
-    <label for="input-phoneNumber">Phone Number: </label>
-    <input type="number" name="input-phoneNumber" id="input-phoneNumber">
+  <label for="input-phoneNumber">Phone Number: </label>
+  <input
+    type="number"
+    name="input-phoneNumber"
+    id="input-phoneNumber"
+    placeholder="6175140828"
+    required
+  />
 
-    <input type="submit">
+  <input class="submitBtn" type="submit" />
 </form>
