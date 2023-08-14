@@ -312,24 +312,16 @@ app.delete("/delete-order-ajax", function (req, res, next) {
   let data = req.body;
   let orderID = parseInt(data.id);
   let deleteOrder = `DELETE FROM Orders WHERE orderID = ?`;
-  let setOrderNull = `UPDATE Order_Details SET orderID = NULL WHERE orderID = ?`;
+  //let setOrderNull = `UPDATE Order_Details SET orderID = NULL WHERE orderID = ?`;
 
   // Run the 1st query
-  db.pool.query(setOrderNull, [orderID], function (error, rows, fields) {
+  db.pool.query(deleteOrder, [orderID], function (error, rows, fields) {
     if (error) {
       // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
       console.log(error);
       res.sendStatus(400);
     } else {
-      // Run the second query
-      db.pool.query(deleteOrder, [orderID], function (error, rows, fields) {
-        if (error) {
-          console.log(error);
-          res.sendStatus(400);
-        } else {
-          res.sendStatus(204);
-        }
-      });
+      res.sendStatus(204);
     }
   });
 });
@@ -410,7 +402,6 @@ app.post("/add-product-form", function (req, res) {
   let data = req.body;
 
   // Create the query and run it on the database
-  //query1 = `INSERT INTO bsg_people (fname, lname, homeworld, age) VALUES ('${data['input-fname']}', '${data['input-lname']}', ${homeworld}, ${age})`;
   query1 = `INSERT INTO Products (supplierID, name, price, stockQuantity, deliveryDate, description) VALUES (${data["input-supplierID"]}, '${data["input-name"]}', '${data["input-price"]}', '${data["input-stockQuantity"]}', '${data["input-deliveryDate"]}','${data["input-description"]}' )`;
   db.pool.query(query1, function (error, rows, fields) {
     // Check to see if there was an error
@@ -432,24 +423,16 @@ app.delete("/delete-product-ajax", function (req, res, next) {
   let data = req.body;
   let productID = parseInt(data.id);
   let deleteProduct = `DELETE FROM Products WHERE productID = ?`;
-  let setProductNull = `UPDATE Order_Details SET productID = NULL WHERE productID = ?`;
+  //let setProductNull = `UPDATE Order_Details SET productID = NULL WHERE productID = ?`;
 
   // Run the 1st query
-  db.pool.query(setProductNull, [productID], function (error, rows, fields) {
+  db.pool.query(deleteProduct, [productID], function (error, rows, fields) {
     if (error) {
       // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
       console.log(error);
       res.sendStatus(400);
     } else {
-      // Run the second query
-      db.pool.query(deleteProduct, [productID], function (error, rows, fields) {
-        if (error) {
-          console.log(error);
-          res.sendStatus(400);
-        } else {
-          res.sendStatus(204);
-        }
-      });
+      res.sendStatus(204);
     }
   });
 });
@@ -551,7 +534,7 @@ app.listen(PORT, function () {
   // This is the basic syntax for what is called the 'listener' which receives incoming requests on the specified PORT.
   console.log(
     "Express started on http://localhost:" +
-      PORT +
-      "; press Ctrl-C to terminate."
+    PORT +
+    "; press Ctrl-C to terminate."
   );
 });
