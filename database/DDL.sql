@@ -79,8 +79,8 @@ INSERT INTO `Employees` (`employeeID`, `name`, `position`, `email`, `phoneNumber
 
 CREATE TABLE `Orders` (
   `orderID` int(11) NOT NULL,
-  `customerID` int(11) NOT NULL,
-  `employeeID` int(11) NOT NULL,
+  `customerID` int(11) DEFAULT NULL,
+  `employeeID` int(11) DEFAULT NULL,
   `dateTime` datetime NOT NULL,
   `orderTotal` decimal(6,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
@@ -130,7 +130,7 @@ INSERT INTO `Order_Details` (`orderID`, `productID`, `soldQuantity`) VALUES
 
 CREATE TABLE `Products` (
   `productID` int(11) NOT NULL,
-  `supplierID` int(11) NOT NULL,
+  `supplierID` int(11) DEFAULT NULL,
   `name` varchar(45) NOT NULL,
   `price` decimal(6,2) NOT NULL,
   `stockQuantity` int(11) NOT NULL,
@@ -257,21 +257,21 @@ ALTER TABLE `Suppliers`
 -- Constraints for table `Orders`
 --
 ALTER TABLE `Orders`
-  ADD CONSTRAINT `fk_Order_Customer` FOREIGN KEY (`customerID`) REFERENCES `Customers` (`customerID`) ON DELETE NULL ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Order_Employee1` FOREIGN KEY (`employeeID`) REFERENCES `Employees` (`employeeID`) ON DELETE NULL ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Order_Customer` FOREIGN KEY (`customerID`) REFERENCES `Customers` (`customerID`) ON DELETE SET NULL ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Order_Employee1` FOREIGN KEY (`employeeID`) REFERENCES `Employees` (`employeeID`) ON DELETE SET NULL ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `Order_Details`
 --
 ALTER TABLE `Order_Details`
-  ADD CONSTRAINT `fk_Order_Details_Order1` FOREIGN KEY (`orderID`) REFERENCES `Orders` (`orderID`) ON DELETE NULL ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Order_Details_Product1` FOREIGN KEY (`productID`) REFERENCES `Products` (`productID`) ON DELETE NULL ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Order_Details_Order1` FOREIGN KEY (`orderID`) REFERENCES `Orders` (`orderID`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Order_Details_Product1` FOREIGN KEY (`productID`) REFERENCES `Products` (`productID`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `Products`
 --
 ALTER TABLE `Products`
-  ADD CONSTRAINT `fk_Products_Suppliers1` FOREIGN KEY (`supplierID`) REFERENCES `Suppliers` (`supplierID`) ON DELETE NULL ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Products_Suppliers1` FOREIGN KEY (`supplierID`) REFERENCES `Suppliers` (`supplierID`) ON DELETE SET NULL ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
