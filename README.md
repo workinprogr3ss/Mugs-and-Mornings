@@ -12,7 +12,7 @@ This project is a web application designed to manage the operations of a fiction
 
 1. **Prerequisites**: Ensure you have Node.js and npm installed on your system.
 2. **Clone the Repository**: `git clone <repository-url>`
-3. **Navigate to the Project Directory**: `cd projectgroup10_step5_FINAL`
+3. **Navigate to the Project Directory**: `cd <repository-folder>`
 4. **Install Dependencies**: Run `npm install` to install the required packages.
 5. **Database Setup**: Execute the `DML.sql` script to set up the database schema and seed data.
 6. **Start the Server**: Run `node app.js` to start the server. The application will be available at `http://localhost:9215/`.
